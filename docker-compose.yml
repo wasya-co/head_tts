@@ -1,0 +1,20 @@
+
+services:
+  headtts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: headtts
+    ports:
+      - "8882:8882"
+    volumes:
+      - ./voices:/app/voices
+      - ./dictionaries:/app/dictionaries
+      - headtts-cache:/root/.cache
+      - type: bind
+        source: ./headtts-node.json
+        target: /app/headtts-node.json
+    restart: unless-stopped
+
+volumes:
+  headtts-cache:
