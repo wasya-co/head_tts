@@ -1,9 +1,10 @@
 
 services:
   headtts:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: piousbox/headtts:0.0.2
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     container_name: headtts
     ports:
       - "8882:8882"
